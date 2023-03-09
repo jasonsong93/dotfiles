@@ -1,4 +1,5 @@
 set exrc
+set mouse=a
 set guicursor=
 set relativenumber
 set nu
@@ -20,11 +21,9 @@ set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
-
 set cmdheight=2
 set updatetime=50
 set shortmess+=c
-
 set colorcolumn=80
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -38,6 +37,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gruvbox-community/gruvbox'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 colorscheme gruvbox
