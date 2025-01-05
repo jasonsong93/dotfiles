@@ -1,7 +1,9 @@
 # My dotfiles
 
-Set up Ubuntu/WSL:
+
 1. Install neovim from source
+    1. ```Hello```
+    2. 
 2. Install zsh
 - `sudo apt install zsh -y`
 3. Configure zsh by typing `zsh` into the CLI
