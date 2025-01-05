@@ -2,7 +2,11 @@
 
 
 1. Install neovim from source
-    1. ```Hello```
+    1. 
+    ```
+        Hello
+    ```
+
     2. 
 2. Install zsh
 - `sudo apt install zsh -y`
