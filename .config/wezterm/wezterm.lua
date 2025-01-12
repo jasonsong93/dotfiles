@@ -2,15 +2,12 @@
 local wezterm = require 'wezterm'
 
 -- This table will hold the configuration.
-
 local config = {}
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- change config now
 config.default_domain = 'WSL:Debian'
-
 config.wsl_domains = {
   {
     -- The name of this specific domain.  Must be unique amonst all types
@@ -21,12 +18,16 @@ config.wsl_domains = {
     -- It must match a valid distribution from your `wsl -l -v` output in
     -- order for the domain to be useful.
     distribution = 'Debian',
+
+    default_cwd = '~',
+
   },
 }
-config.default_domain = 'WSL:Debian'
 
--- For example, changing the color scheme:
-config.color_scheme = 'GruvboxDarkHard'
+config.color_scheme = 'rose-pine'
+config.font = wezterm.font("JetBrains Mono", {bold=false, italic=false})
+config.audible_bell = "Disabled"
+
 
 -- and finally, return the configuration to wezterm
 return config
