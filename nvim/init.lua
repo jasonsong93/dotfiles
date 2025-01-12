@@ -25,18 +25,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local plugins = {}
+-- Setup lazy.nvim
+local plugins = {
+	{ "rose-pine/neovim", as = "rose-pine" }
+}
 local opts = {}
 
--- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    -- add your plugins here
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
-})
+require("lazy").setup(plugins, opts)
 
+require("rose-pine").setup()
+vim.cmd.colorscheme "rose-pine"
