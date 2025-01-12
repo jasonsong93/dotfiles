@@ -1,1 +1,0 @@
-/home/jasonsong/.zprezto/runcoms/zshrc
