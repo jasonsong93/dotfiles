@@ -1,15 +1,3 @@
-vim.cmd("set autochdir")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=0 noexpandtab")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set nohlsearch")
-
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -29,4 +17,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
+require("vim-options")
 require("lazy").setup("plugins")
