@@ -1,3 +1,4 @@
+vim.cmd("set autochdir")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=0 noexpandtab")
 vim.cmd("set shiftwidth=4")
@@ -31,6 +32,15 @@ local plugins = {
 	'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+	{
+		'stevearc/oil.nvim',
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
+		-- Optional dependencies
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+	}
 }
 local opts = {}
 
@@ -46,8 +56,19 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 -- Treesitter setup
 local config = require("nvim-treesitter.configs")
 config.setup({
-	ensure_installed = { "lua" },
+	ensure_installed = { "lua", "c_sharp" },
+	indent = { enable = true},
+	highlight = {enable = true},
 })
+
+local config = require("oil")
+config.setup({
+	default_file_explorer = true,
+	view_options = {
+		show_hidden = true,
+	}
+})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Colour schemes
 require("rose-pine").setup()
