@@ -2,6 +2,14 @@ vim.cmd("set autochdir")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=0 noexpandtab")
 vim.cmd("set shiftwidth=4")
+vim.cmd("set nohlsearch")
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -20,31 +28,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim
-local plugins = {
-	{ "rose-pine/neovim", as = "rose-pine" },
-	'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	dependencies = { 'nvim-lua/plenary.nvim' },
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-	{
-		'stevearc/oil.nvim',
-		---@module 'oil'
-		---@type oil.SetupOpts
-		opts = {},
-		-- Optional dependencies
-		dependencies = { { "echasnovski/mini.icons", opts = {} } },
-		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-	}
-}
-local opts = {}
-
-require("lazy").setup(plugins, opts)
+-- Load plugins
+require("lazy").setup("plugins")
 
 -- Telescope setup
 local builtin = require('telescope.builtin')
@@ -60,15 +45,6 @@ config.setup({
 	indent = { enable = true},
 	highlight = {enable = true},
 })
-
-local config = require("oil")
-config.setup({
-	default_file_explorer = true,
-	view_options = {
-		show_hidden = true,
-	}
-})
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Colour schemes
 require("rose-pine").setup()
