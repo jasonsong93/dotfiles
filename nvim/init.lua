@@ -30,18 +30,3 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
 require("lazy").setup("plugins")
-
--- Telescope setup
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-
--- Treesitter setup
-local config = require("nvim-treesitter.configs")
-config.setup({
-	ensure_installed = { "lua", "c_sharp" },
-	indent = { enable = true},
-	highlight = {enable = true},
-})
