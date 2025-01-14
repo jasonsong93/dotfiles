@@ -1,5 +1,3 @@
--- Oil setup
-
 local detail = false
 return {
 	'stevearc/oil.nvim',
@@ -114,5 +112,4 @@ return {
 	keymaps_help = {
 		border = "rounded",
 	},
-
 }
