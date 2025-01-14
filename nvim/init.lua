@@ -45,7 +45,3 @@ config.setup({
 	indent = { enable = true},
 	highlight = {enable = true},
 })
-
--- Colour schemes
-require("rose-pine").setup()
-vim.cmd.colorscheme "rose-pine"
