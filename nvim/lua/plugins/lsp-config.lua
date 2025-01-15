@@ -12,7 +12,7 @@ return {
 			require("mason-lspconfig").setup(
 				{
 					-- Define the lsps you want to install, mason-lspconfig will handle
-					ensure_installed = { "lua_ls", "" }
+					ensure_installed = { "lua_ls" }
 				})
 		end
 	},
@@ -23,8 +23,14 @@ return {
 			local lspconfig = require("lspconfig")
 			-- Define the servers you want nvim to use
 			lspconfig.lua_ls.setup({})
-			lspconfig.omnisharp.setup({})
 			vim.keymap.set({ 'n' }, '<leader>ca', vim.lsp.buf.code_action, {})
 		end
+	},
+	{
+		"seblj/roslyn.nvim",
+		ft = "cs",
+		opts = {
+			-- your configuration comes here; leave empty for default settings
+		}
 	}
 }

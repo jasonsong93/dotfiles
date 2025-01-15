@@ -1,4 +1,5 @@
 {
+  "Oil.nvim": { "branch": "master", "commit": "09fa1d22f5edf0730824d2b222d726c8c81bbdc9" },
   "dressing.nvim": { "branch": "master", "commit": "3a45525bb182730fe462325c99395529308f431e" },
   "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "e942edf5c85b6a2ab74059ea566cac5b3e1514a4" },
@@ -6,8 +7,7 @@
   "neovim": { "branch": "main", "commit": "106f05aeab8277e97eda9649271b33f9f12d8db4" },
   "nvim-lspconfig": { "branch": "master", "commit": "355c565eae59810c1af4cf132938fa0fc251c5a2" },
   "nvim-treesitter": { "branch": "master", "commit": "984214ef8e4ca18d77639663319aabdfba89632f" },
-  "oil-lsp-diagnostics.nvim": { "branch": "master", "commit": "693374aa4cfa97ed5e95370bc5a9f0c452351c6c" },
-  "oil.nvim": { "branch": "master", "commit": "09fa1d22f5edf0730824d2b222d726c8c81bbdc9" },
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
+  "roslyn.nvim": { "branch": "main", "commit": "85aca5d48ddf8ada4e010ee9fa4d43c77ebf68c9" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" }
 }
