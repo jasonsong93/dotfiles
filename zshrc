@@ -45,3 +45,6 @@ compdef _dotnet_zsh_complete dotnet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias dots=~/scripts/dotfiles.sh
+
+# Start ssh agent
+plugins=(git ssh-agent)
