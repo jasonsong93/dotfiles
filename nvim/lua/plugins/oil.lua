@@ -15,6 +15,8 @@ return {
 				keymaps = {
 					['<CR>'] = 'actions.select',
 					['-'] = 'actions.parent',
+					["`"] = { "actions.cd", mode = "n" },
+					["<C-l>"] = "actions.refresh",
 				},
 			}
 			vim.keymap.set('n', '_', require('oil').toggle_float)
