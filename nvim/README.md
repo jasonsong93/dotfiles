@@ -1,1 +1,1 @@
-Custom nvim config - WIP
+Custom nvim configuration
