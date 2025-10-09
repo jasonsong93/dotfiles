@@ -2,12 +2,12 @@ return {
   "ibhagwan/fzf-lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
-    { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find files" },
+    { "<leader>ff", "<cmd>FzfLua files<cr>",     desc = "Find files" },
     { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live grep" },
-    { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader>fb", "<cmd>FzfLua buffers<cr>",   desc = "Buffers" },
     { "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Help tags" },
-    { "<leader>fo", "<cmd>FzfLua oldfiles<cr>", desc = "Recent files" },
-    { "<leader>fc", "<cmd>FzfLua commands<cr>", desc = "Commands" },
+    { "<leader>fo", "<cmd>FzfLua oldfiles<cr>",  desc = "Recent files" },
+    { "<leader>fc", "<cmd>FzfLua commands<cr>",  desc = "Commands" },
   },
   opts = {},
 }

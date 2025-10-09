@@ -35,3 +35,21 @@ vim.opt.scrolloff = 5
 vim.g.netrw_winsize = 25
 vim.g.netrw_liststyle = 3
 vim.g.netrw_altv = 1
+
+
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focusable = false,
+      scope = "cursor",
+    })
+  end,
+})
+
+vim.opt.updatetime = 700

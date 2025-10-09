@@ -1,7 +1,12 @@
 {
+  "conform.nvim": { "branch": "master", "commit": "fbcb4fa7f34bfea9be702ffff481a8e336ebf6ed" },
   "fzf-lua": { "branch": "main", "commit": "db3ccffe79480543d8e0f7b0cac0d9b220f9486e" },
   "lazy.nvim": { "branch": "main", "commit": "4ded3ff73bf42e1c657e5deb85d8bbd887d0172e" },
+  "mason-lspconfig.nvim": { "branch": "main", "commit": "6bdb14f230de0904229ec367b410fb817e59b072" },
+  "mason.nvim": { "branch": "main", "commit": "ad7146aa61dcaeb54fa900144d768f040090bff0" },
   "material.nvim": { "branch": "main", "commit": "249289d9e75fa9ca054e6c6b98f56820e9719300" },
+  "nvim-lint": { "branch": "master", "commit": "9da1fb942dd0668d5182f9c8dee801b9c190e2bb" },
+  "nvim-lspconfig": { "branch": "master", "commit": "e688b486fe9291f151eae7e5c0b5a5c4ef980847" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "nvim-web-devicons": { "branch": "master", "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
