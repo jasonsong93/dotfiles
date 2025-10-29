@@ -53,3 +53,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 vim.opt.updatetime = 700
+
+-- For netrw
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function()
+    vim.opt_local.number = true
+    vim.opt_local.relativenumber = true
+  end,
+  desc = "Enable hybrid line numbers for netrw"
+})

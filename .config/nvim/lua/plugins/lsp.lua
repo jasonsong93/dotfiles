@@ -19,6 +19,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "omnisharp",
+        "yamlls",
       },
       handlers = {
         function(server_name)
