@@ -17,6 +17,7 @@ return {
       "query",
       "markdown",
       "markdown_inline",
+      "yaml",
     },
     sync_install = false,
     auto_install = true,  -- enable this or disable this as necessary 
