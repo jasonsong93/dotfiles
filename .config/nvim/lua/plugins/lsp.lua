@@ -141,7 +141,7 @@ return {
         'williamboman/mason-lspconfig.nvim',
         dependencies = { 'williamboman/mason.nvim' },
         opts = {
-            ensure_installed = { 'lua_ls' },
+            ensure_installed = { 'lua_ls', 'roslyn_ls' },
             automatic_installation = true,
         },
     },

@@ -31,6 +31,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.scrolloff = 5
+vim.opt.textwidth = 80
 
 vim.g.netrw_winsize = 25
 vim.g.netrw_liststyle = 3
