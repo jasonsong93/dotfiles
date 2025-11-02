@@ -7,24 +7,22 @@ local function lsp_on_attach(client, bufnr)
     -- Format keymap (Leader + Shift + F)
     vim.keymap.set('n', '<leader>F', function()
         if client.name == 'roslyn_ls' and vim.fn.executable('dotnet') == 1 then
-            -- Check if CSharpier is available by running `dotnet csharpier --version`
+            -- Check if CSharpier is available
             local handle = io.popen('dotnet csharpier --version 2>&1')
             local result = handle:read("*a")
             handle:close()
 
-            -- Lua pattern '%d+%.%d+%.%d+' matches a semantic version number like 1.2.3
-            -- %d+  -> one or more digits
-            -- %.   -> literal dot
-            -- This ensures we only run CSharpier if it exists and returns a proper version
             if result:match('%d+%.%d+%.%d+') then
+                vim.notify('Formatting with CSharpier...', vim.log.levels.INFO)
                 local file = vim.fn.expand('%:p')
                 vim.fn.system('dotnet csharpier format ' .. vim.fn.shellescape(file))
                 vim.cmd('edit!')
             else
-                -- Fallback to LSP formatting if CSharpier is not available
+                vim.notify('Formatting with LSP...', vim.log.levels.INFO)
                 vim.lsp.buf.format({ async = false })
             end
         else
+            vim.notify('Formatting with LSP...', vim.log.levels.INFO)
             vim.lsp.buf.format({ async = false })
         end
     end, { buffer = bufnr, desc = 'Format buffer' })
@@ -39,7 +37,6 @@ local function lsp_on_attach(client, bufnr)
                     local result = handle:read("*a")
                     handle:close()
 
-                    -- Same semantic version check as above
                     if result:match('%d+%.%d+%.%d+') then
                         local file = vim.fn.expand('%:p')
                         vim.fn.system('dotnet csharpier format ' .. vim.fn.shellescape(file))
@@ -67,6 +64,8 @@ local function lsp_on_attach(client, bufnr)
             vim.lsp.codelens.refresh({ bufnr = bufnr })
         end
     end
+
+    vim.notify(client.name .. ' attached successfully!', vim.log.levels.INFO)
 end
 
 local lsp_servers = {
@@ -141,7 +140,7 @@ return {
         'williamboman/mason-lspconfig.nvim',
         dependencies = { 'williamboman/mason.nvim' },
         opts = {
-            ensure_installed = { 'lua_ls', 'roslyn_ls' },
+            ensure_installed = { 'lua_ls' },
             automatic_installation = true,
         },
     },
@@ -159,7 +158,12 @@ return {
                 underline = true,
                 update_in_insert = false,
                 severity_sort = true,
-                float = { border = 'rounded', source = 'always' },
+                float = {
+                    border = 'rounded',
+                    source = 'always',
+                    header = '',
+                    prefix = '',
+                },
             })
 
             local signs = { Error = '✘', Warn = '▲', Hint = '⚑', Info = 'ℹ' }
@@ -175,7 +179,7 @@ return {
                 cmd = {
                     'dotnet',
                     vim.fn.expand(
-                        '~/.local/share/roslyn-ls/content/LanguageServer/neutral/Microsoft.CodeAnalysis.LanguageServer.dll'),
+                    '~/.local/share/roslyn-ls/content/LanguageServer/neutral/Microsoft.CodeAnalysis.LanguageServer.dll'),
                     '--logLevel', 'Information',
                     '--extensionLogDirectory', vim.fn.stdpath('cache') .. '/roslyn_ls/logs',
                     '--stdio'
