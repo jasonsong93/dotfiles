@@ -109,3 +109,7 @@ source <(fzf --zsh)
 
 
 export PATH="$PATH:$HOME/.dotnet/tools"
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+eval "$(pyenv init --path)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init --path)"
